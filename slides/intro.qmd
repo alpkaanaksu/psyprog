@@ -1,0 +1,24 @@
+---
+title: "Einführung"
+subtitle: "Programmieren???"
+author:
+  - name: Alp Kaan Aksu
+    email: a.aksu@campus.lmu.de
+date: 2023-09-20
+date-format: "D•M•YYYY"
+footer: "Programmierkurs für Psychologieerstis - Einführung"
+format: 
+  clean-revealjs: 
+    output-ext: slide.html
+    transition: slide
+    background-transition: fade
+    touch: true
+    embed-resources: true
+  html: default
+---
+
+Deneme
+
+---
+
+Slide 2

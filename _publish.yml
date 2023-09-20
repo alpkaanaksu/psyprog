@@ -1,0 +1,4 @@
+- source: project
+  netlify:
+    - id: 36a09aee-91cc-4243-9c9d-04c05a84d3d8
+      url: 'https://psyprog.alpkaanaksu.com'

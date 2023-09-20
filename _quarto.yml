@@ -1,0 +1,21 @@
+project:
+  type: website
+
+website:
+  title: "psyprog"
+  navbar:
+    left:
+      - href: slides/overview.qmd
+        text: Folien
+      - href: topics.qmd
+        text: Themenübersicht
+      - href: about.qmd
+        text: Wer sind wir?
+
+format:
+  html:
+    theme: journal
+    css: styles.css
+    toc: true
+
+

@@ -1,0 +1,19 @@
+---
+title: "Wer sind wir?"
+---
+
+## Alp Kaan Aksu
+Ich studiere Psychologie in meinem 3. Semester an der LMU und Informatik in meinem 5. Semester an der TUM.
+
+{{< fa globe >}} [alpkaanaksu.com](https://alpkaanaksu.com)
+
+{{< fa brands github >}} [alpkaanaksu](https://github.com/alpkaanaksu)
+
+
+## Martin Wiehr
+
+## Caspar Schumacher
+
+---
+
+Vielen Dank an [Prof. Dr. Felix Schönbrodt](https://www.psy.lmu.de/pm/personen/lehrstuhlmitarbeiter/schoenbrodt/index.html) für seine Hilfe und Unterstützung.

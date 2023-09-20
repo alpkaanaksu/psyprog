@@ -1,0 +1,17 @@
+---
+title: Themenübersicht
+---
+
+| Typ | Woche | Thema | Beschreibung |
+| --- | ----- | ----- | ------ |
+| Regulär | 1 | Allgemeine Einführung | Was ist ein Algorithmus? Was kann man programmieren? |
+| Regulär | 1 | Datentypen, Variablen, Coercion | Wie speichert man Daten? Was für unterschiedliche Arten von Daten gibt es? Wie arbeitet man mit Variablen? Was versteht man unter Coercion? |
+| Exkurs | 2 | Markdown, Latex (nur für Formeln) | Wie formatiert man Dokumente mit Markdown? Wie schreibt man Formeln in die Dokumente? |
+| Regulär | 3 | Debugging, Vectorization, Relational operator, Kontrollstrukturen, `ifelse`-Funktion | Wie findet man Fehler? Wie kann man den Fluss von dem Programm beeinflussen? |
+| Exkurs | 4 | Regex | Was sind Regular Expressions? Was kann man damit machen? |
+| Regulär | 5 | Funktionen | Was sind Funktionen? Wie schreibt man eigene Funktionen? |
+| Exkurs | 6 | Python **Grundlagen** (evtl zu viel?) | Python-Syntax für bisher gelernten Konzepte |
+| Regulär | 9 | R-Markdown, dplyr | oft wervendete R packages |
+| Exkurs | 10 | Good Coding Practices | Wie schreibt man Programme, die lesbar, wartbar und erweiterbar, sind? |
+| Regulär | 11 | Version Control, Git, GitHub | Einleitung ins Git und GitHub |
+| (Exkurs) evtl findet gar nicht statt | 12 | **Basics** von HTML, GitHub Pages | Wie sehen einfache Web-Dokumente aus? |
