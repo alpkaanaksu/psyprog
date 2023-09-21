@@ -1,0 +1,4 @@
+/* Exclude explanations in the presentation mode */
+.exclude {
+    display: none;
+}
