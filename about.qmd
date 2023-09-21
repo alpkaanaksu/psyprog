@@ -11,6 +11,10 @@ Ich studiere Psychologie in meinem 3. Semester an der LMU und Informatik in mein
 
 
 ## Martin Wiehr
+Ich studiere ebenfalls Psychologie im 3. Semester an der LMU. Nebenher mache ich zwar kein zusätzliches Informatik Studium bin aber trotzdem am Programmieren interressiert.
+
+{{< fa brands github >}} [MWiehr](https://github.com/MWiehr)
+
 
 ## Caspar Schumacher
 
