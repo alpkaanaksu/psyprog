@@ -20,7 +20,6 @@ Ich studiere ebenfalls Psychologie im 3. Semester an der LMU. Nebenher mache ich
 Auch ich bin Psychologiestudent im 3. Semester. Programmieren fand ich schon immer spannend, jedoch habe ich mich bisher nicht so recht alleine daran gewagt. Mit R habe ich dann meine ersten Schritte gemacht und erkannt, wie nützlich ein gewisses Maß an Informatikkenntnissen auch für Psychologen sein kann. So entstand die Idee, in diesem Kurs von Grund auf zusammen mit Gleichgesinnten zu lernen!
 
 {{< fa brands github >}} [CasparSchumacher](https://github.com/CasparSchumacher)
-...
 
 ---
 
