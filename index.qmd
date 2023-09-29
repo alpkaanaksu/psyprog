@@ -2,11 +2,18 @@
 title: "Grundlagen der Programmierung für Psychologie-Erstis"
 ---
 
-::: { .card }
+:::: { .card .flex }
+::: {}
 [**Dienstags**]{ .x-large }
 
 [12-14 Uhr]{ .xx-large }
 :::
+
+::: { style="text-align: right" }
+[Raum **3322**]{ .xx-large }
+:::
+
+::::
 
 In der modernen Wissenschaft sind Programmierkenntnisse äußerst hilfreich. Sie ermöglichen die Analyse großer Datenmengen und die Automatisierung aufwändiger Forschungsprozesse durch Computerprogramme. Ihr werdet schnell feststellen, dass Psychologie hier keine Ausnahme bildet. In euren ersten zwei Semestern werdet ihr in Statistik 1 und Statistik 2 die Grundlagen der Statistik lernen und *bisschen* in [R](https://en.wikipedia.org/wiki/R_(programming_language)) programmieren. Im zweiten Semester werdet ihr erstmals an einem kleinen Forschungsprojekt (Empra) teilnehmen. Spätestens hier werdet ihr deutlich sehen, wie nützlich Programmierkenntnisse sein können.
 

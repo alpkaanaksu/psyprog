@@ -7,6 +7,16 @@
     margin-bottom: 1rem;
 }
 
+.card.flex {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.card.flex div {
+    flex: 1 1;
+}
+
 .card p {
     margin: 0;
 }
