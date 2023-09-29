@@ -1,1 +1,20 @@
 /* css styles */
+
+.card {
+    border-radius: 8px;
+    padding: 16px;
+    border: 1px solid var(--bs-primary);
+    margin-bottom: 1rem;
+}
+
+.card p {
+    margin: 0;
+}
+
+.x-large {
+    font-size: x-large;
+}
+
+.xx-large {
+    font-size: xx-large;
+}

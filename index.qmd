@@ -2,6 +2,12 @@
 title: "Grundlagen der Programmierung für Psychologie-Erstis"
 ---
 
+::: { .card }
+[**Dienstags**]{ .x-large }
+
+[12-14 Uhr]{ .xx-large }
+:::
+
 In der modernen Wissenschaft sind Programmierkenntnisse sehr hilfreich, weil man durch Computerprogramme große Mengen an Daten analysieren oder aufwändige Prozesse der Forschung automatisieren kann. Ihr werdet schnell merken, dass Psychologie da keine Ausnahme ist. In euren ersten zwei Semestern werdet ihr in Statistik 1 und Statistik 2 die Grundlagen der Statistik lernen und *bisschen* in [R](https://en.wikipedia.org/wiki/R_(programming_language)) programmieren. Im zweiten Semester macht ihr dann zum ersten Mal bei einem kleinen Forschungsprojekt mit (Empra). Spätestens dann werdet ihr sehen, wie nützlich Programmierskills sein können.
 
 Man studiert nicht unbedingt Psychologie, weil man viel programmieren will (das ist zumindest nicht der typische Grund für ein Psychologiestudium). Man profitiert aber viel davon, wenn man es kann. Und Programmieren macht spaß!
@@ -17,3 +23,7 @@ Jeder, der programmieren lernen will, kann teilnehmen. Wir werden versuchen, euc
 Obwohl wir im Rahmen des Psychologiestudiums immer wieder irgendwas mit R machen, bekommen wir nie eine richtige Einführung. Das führt zur Frustration und wirkt demotivierend. Diese Situation sorgt für Stress, obwohl es nicht so schwierig ist, programmieren zu lernen.
 
 Die Idee hatten wir, als wir uns in einer Empra-Sitzung beschwert haben, weil wir viel mit R machen mussten, obwohl wir sie nicht richtig können. Wir haben uns gefragt, warum man an der Uni nicht zumindest die Basics der Programmierung lernt. Es gibt auch weitere grundlegende technische Konzepte (z.B. [version control](https://en.wikipedia.org/wiki/Version_control)) die man an der Uni leider erst viel später begegnet, obwohl die nicht kompliziert und sehr nützlich sind. Wir wollen, dass ihr eine bessere und freundliche Einführung bekommt. Dieser Kurs wird von Studierenden für Studierende organisiert und ist experimentell!
+
+---
+
+Für Fragen: [alp@rpsyche.de](mailto:alp@rpsyche.de)
