@@ -10,7 +10,9 @@ title: "Grundlagen der Programmierung für Psychologie-Erstis"
 :::
 
 ::: { style="text-align: right" }
-[Raum **3322**]{ .xx-large }
+[**Raum**]{ .x-large }
+
+[3322]{ .xx-large }
 :::
 
 ::::
