@@ -6,7 +6,7 @@ title: "Grundlagen der Programmierung für Psychologie-Erstis"
 ::: {}
 [**Dienstags**]{ .x-large }
 
-[12-14 Uhr]{ .xx-large }
+[12:30-13:30]{ .xx-large }
 :::
 
 ::: { style="text-align: right" }
