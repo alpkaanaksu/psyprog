@@ -20,6 +20,14 @@ format:
   html: default
 ---
 
+::: { .exclude }
+- Was ist Programmieren?
+- Es gibt mehrere Datentypen
+- Wenn man Datentypen mischt, kann es zu Problemen kommen
+- Arithmetische Operatoren in R
+- Vectors und Data Frames
+:::
+
 ## Variablen
 
 - Container für Objekte (≈ alles)
@@ -75,6 +83,36 @@ a + b
 ```
 ---
 
+## Rechnen in R
+- Operatoren `+`, `-`, `*`, `/`, `%%`
+
+```{r}
+20 %% 4
+```
+
+```{r}
+20 %% 5
+```
+
+```{r}
+20 %% 16
+```
+
+
+### Warum kann R nicht rechnen?
+```{r}
+0.1 + 0.2 == 0.3
+```
+
+```{r}
+1 - 1e-16 == 1
+```
+
+```{r}
+1 - 1e-17 == 1
+```
+
+
 ## Nicht nur Zahlen!
 
 ```{r}
@@ -98,6 +136,8 @@ class(name)
 ```{r}
 class(a)
 ```
+
+---
 
 ### 1 vs "1"?
 ```{r}
@@ -155,7 +195,9 @@ Wenn man in einem Vector Zahlen *und* Texte speichern will, ist es sinnvoll, num
 Wenn man das nicht berücksichtigt, kann es zu unerwartetem und unerwünschtem Verhalten führen. Durch Coercion können auch NA-Werte (**N**ot **A**vailable) erzeugt werden, wenn eine Umwandlung nicht möglich ist.
 :::
 
-#### sequence
+---
+
+#### Sequence
 ```{r}
 10:20 # oder seq(10, 20)
 ```
@@ -186,7 +228,7 @@ my_list
 - Eine Liste aber alle Einträge sind Vektoren einer bestimmten länge
 
 ```{r}
-data <- data.frame(Name = c("Alp", "Martin", "Caspar"), Alter = c(21, 20, 20))
+data <- data.frame(Name = c("Alp", "Martin", "Caspar"), Alter = c(21, 21, 20))
 
 data
 ```
