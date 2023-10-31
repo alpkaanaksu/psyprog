@@ -1,0 +1,64 @@
+---
+title: "Regex"
+subtitle: Woche 4, Exkurs 2
+author:
+  - name: Alp Kaan Aksu
+    email: a.aksu@campus.lmu.de
+date: 2023-09-20
+date-format: "D•M•YY"
+footer: "Programmierkurs für Psychologieerstis - Regex"
+format: 
+  clean-revealjs: 
+    output-ext: slide.html
+    transition: slide
+    background-transition: fade
+    touch: true
+    embed-resources: true
+    css: reveal_styles.css
+  html: default
+---
+
+Stellt euch vor,...
+
+- ihr wollt [DOI](https://en.wikipedia.org/wiki/Digital_object_identifier)s aus Papern extrahieren
+- schauen ob Freitext-Antworten von Versuchspersonen bestimmte (flexible) Sequenzen von Wörtern beinhalten
+- ihr wollt herausfinden, ob es in einem Satz ein Datum gibt
+
+Diese Probleme können zu einem Problem generalisiert werden: Suche nach Mustern in Texten
+
+---
+
+## Muster in Texten suchen. Was braucht man dafür?
+- Ein Text, in dem gesucht wird (selbstverständlich)
+- Ein Muster. Wie würde man Textmuster in Computern speichern und darstellen? 🤔
+
+::: { .fragment }
+Regular Expressions (kurz: Regex) sind Zeichensequenzen, die Textmuster darstellen
+:::
+
+---
+
+## Datum im Text?
+**Annahme:** Monate werden auch immer als Zahlen geschrieben. (keine Namen wie 'November'). Folgende wären gültig:
+
+::: { style="text-align: center; font-size: larger" }
+10.09.2002, 10/09/2002, 1.1.2024,
+:::
+
+Muster?
+
+:::: { .columns }
+
+::: { .column width="60%" }
+1. Tag: Eine Ziffer oder zwei Ziffern (Tag)
+2. Ein Punkt oder ein Schrägstrich
+3. Monat: Eine Ziffer oder zwei Ziffern
+4. Ein Punkt oder ein Schrägstrich
+5. Jahr: Vier Ziffern
+:::
+
+::: { .column width="40%" }
+\d{1,2}[\./]\d{1,2}[\./]d{4}
+:::
+
+::::

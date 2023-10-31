@@ -1,0 +1,210 @@
+---
+title: "Variablen und Datentypen"
+execute: 
+  echo: true
+  error: true
+author:
+  - name: Alp Kaan Aksu
+    email: a.aksu@campus.lmu.de
+date: 2023-09-20
+date-format: "DD.MM.YY"
+footer: "Programmierkurs für Psychologieerstis - Variablen und Datentypen"
+format: 
+  clean-revealjs: 
+    output-ext: slide.html
+    transition: slide
+    background-transition: fade
+    touch: true
+    embed-resources: true
+    css: reveal_styles.css
+  html: default
+---
+
+## Variablen
+
+- Container für Objekte (≈ alles)
+- Zuweisung mit `<-`
+
+```{r}
+a <- 1
+b <- 2
+```
+
+- `a` und `b` stehen jetzt für die Werte 1 und 2
+
+```{r}
+a
+```
+
+```{r}
+b
+```
+---
+
+- Man kann mit gespeicherten Werten rechnen
+
+```{r}
+a + 1
+```
+
+
+```{r}
+b + 1
+```
+
+- Gespeicherte Werte können geändert/manipuliert werden
+
+```{r}
+a <- a + 1
+b <- b + 1
+```
+
+
+```{r}
+a
+```
+
+
+```{r}
+b
+```
+
+
+```{r}
+a + b
+```
+---
+
+## Nicht nur Zahlen!
+
+```{r}
+name <- "Alp" # Texte schreibt man zwischen " "
+
+name
+```
+
+- `name + a`? Hmm 🤔
+
+```{r}
+name + a
+```
+
+- 'non-numeric argument': es gibt verschiedene Typen!
+
+```{r}
+class(name)
+```
+
+```{r}
+class(a)
+```
+
+### 1 vs "1"?
+```{r}
+class(1)
+```
+
+```{r}
+class("1")
+```
+
+- Das heißt: `1` $\neq$ `"1"`
+
+::: { .exclude }
+#### Andere Datentypen
+
+`character` (wird of auch *string* genannt) und `numeric` sind nicht alle Datentypen, die es in R gibt. Es gibt noch `integer`, `logical` und `complex`. `logical` ist sehr wichtig, für Kontrollstrukturen und Relational Operators (Sitzung 3).
+
+#### Zahlen und Texte? Was ist der Unterschied?
+
+Zahlen und Texte werden von Computern komplett unterschiedlich behandelt. Man denkt im Alltag normalerweise nicht wirklich darüber aber Zahlen und Texte sehen im Speicher komplett unterschiedlich aus. Eine Zahl steht oft alleine in einer Zelle, Texte werden als Folge von Zeichen auf den Speicher gelegt.
+
+#### Kommentare?
+
+In R werden Zeichen, die in einer Zeile nach einem `#` kommen, nicht interpretiert. Das ist sehr praktisch, wenn man z.B. anderen **Menschen** erklären will, wass der Code macht. Computer und Menschen können beide Code lesen und *verstehen*, den Menschen tut man aber auf jeden Fall gut, wenn man das Programm nochmal verständlich erklärt.
+:::
+---
+
+## Zusammengesetzte Daten
+
+### Vector
+```{r}
+numbers <- c(1, 2, 5, 6)
+numbers
+```
+
+```{r}
+names <- c("Alp", "Martin", "Caspar")
+names
+```
+
+- Aber: nur ein Datentyp $\rightarrow$ coercion
+
+```{r}
+confused <- c(names, numbers)
+confused
+```
+
+::: { .exclude }
+Manchmal muss ein Wert in einen anderen Datentyp umgewandelt (= *coerced*) werden. Manchmal wird es nach der folgenden Hierarchie automatisch gemacht:
+
+logical $\rightarrow$ integer $\rightarrow$ numeric $\rightarrow$ complex $\rightarrow$ character $\rightarrow$ list
+
+Wenn man in einem Vector Zahlen *und* Texte speichern will, ist es sinnvoll, numeric Werte in character Werte umzuwandeln (passiert in R auch automatisch). Jede Zahl kann irgendwie als Text dargestellt werden: `1256` $\rightarrow$ `"1256"`, aber nicht jeder Text hat einen sinnvollen Zahlenwert: `"1"` $\rightarrow$ `1` (einfach!), aber `"Psychologie"` $\rightarrow$ `???` 🤔. 
+
+Wenn man das nicht berücksichtigt, kann es zu unerwartetem und unerwünschtem Verhalten führen. Durch Coercion können auch NA-Werte (**N**ot **A**vailable) erzeugt werden, wenn eine Umwandlung nicht möglich ist.
+:::
+
+#### sequence
+```{r}
+10:20 # oder seq(10, 20)
+```
+
+::: { .exclude }
+Wenn man den `:`-Operator oder die `seq`-Funktion verwendet, hat man am Ende einen `integer`-Vector (= alle Objekte im Vector sind ganze Zahlen). 
+:::
+---
+
+### List
+
+- Eine Liste 😮
+- Kann Objekte mehrerer Typen beinhalten
+- Elemente haben auch 'names'
+
+```{r}
+my_list <- list(1256, "Alp", c(1, 2, 5, 6))
+
+names(my_list) <- c("A number", "A name", "A list of numbers")
+
+my_list
+```
+
+---
+
+### Data Frame
+
+- Eine Liste aber alle Einträge sind Vektoren einer bestimmten länge
+
+```{r}
+data <- data.frame(Name = c("Alp", "Martin", "Caspar"), Alter = c(21, 20, 20))
+
+data
+```
+
+---
+
+- Eignet sich für psychologische Daten
+  - z.B. jede Zeile eine Versuchsperson
+- `read.csv`-Funktion gibt auch einen Data Frame zurück
+- Man arbeitet sehr oft mit Data Frames 
+
+::: { .exclude }
+Unsere Rohdaten lassen sich meistens sehr gut als Data Frames darstellen. Zeilen stehen für Versuchspersonen und Spalten für erhobenen Variablen. Es gibt außerdem andere Objektarten, denen man oft begegnet (z.B. `table`), die spezielle Data Frames sind.
+:::
+
+---
+## Indizierung
+
+
+
+---
