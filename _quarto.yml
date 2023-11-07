@@ -5,11 +5,11 @@ website:
   title: "RPsyche"
   navbar:
     left:
-      - href: slides/overview.qmd
+      - href: folien/uebersicht.qmd
         text: Folien
-      - href: topics.qmd
+      - href: themenuebersicht.qmd
         text: Themenübersicht
-      - href: about.qmd
+      - href: ueber-uns.qmd
         text: Wer sind wir?
 
 format:

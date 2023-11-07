@@ -1,0 +1,195 @@
+---
+title: "Markdown und Latex"
+author:
+  - name: Alp Kaan Aksu
+    email: a.aksu@campus.lmu.de
+  - name: Caspar Schumacher
+    email: C.Schumacher@campus.lmu.de
+date: 2023-11-06
+date-format: "DD.MM.YY"
+footer: "Markdown und Latex"
+format: 
+  clean-revealjs: 
+    output-ext: slide.html
+    transition: slide
+    background-transition: fade
+    touch: true
+    embed-resources: true
+    css: reveal_styles.css
+  html: default
+---
+
+# Markup Sprachen
+
+- Sprachen zur Formatierung und Strukturierung von Dokumenten
+
+![Für was werden die unterschiedlichen Markup Sprachen verwendet?](images/markup.jpeg)
+
+# Markdown
+
+- Einfache und standisierte Methode, Texte zu formatieren
+
+---
+
+# Heading 1
+
+```md
+# Heading 1
+```
+
+
+## Heading 2
+
+```md
+## Heading 2
+```
+### Heading 3
+
+```md
+### Heading 3
+```
+
+---
+
+**fett** und *kursiv*
+
+```md
+**fett** und *kursiv*
+```
+
+Ein link zu einer Webseite: [RPsyche](https://rpsyche.de)
+
+```md
+[RPsyche](https://rpsyche.de)
+```
+
+Oder code: `data.frame()`
+
+```md
+`data.frame()`
+```
+
+```md
+Meta Codeblock
+```
+
+````md
+```
+Meta Codeblock
+```
+````
+
+---
+
+> Irgendwas irgendwer irgendwann mal gesagt hat...
+
+```md
+> Irgendwas irgendwer irgendwann mal gesagt hat...
+```
+
+---
+
+1. Hmm
+2. Hmmm
+3. Hmmmm
+
+```md
+1. Hmm
+2. Hmmm
+3. Hmmmm
+```
+
+- Hmm
+- Hmmm
+- Hmmmm
+
+```md
+- Hmm
+- Hmmm
+- Hmmmm
+```
+
+- Hmm
+  - Hmmm
+    - Hmmmm
+
+```md
+- Hmm
+  - Hmmm
+    - Hmmmm
+```
+---
+
+Man kann auch Tabellen haben:
+
+| Name | Alter |
+| --- | --- |
+| Alp | 21 |
+| Martin | 21 |
+| Caspar | 20 |
+
+```md
+| Name | Alter |
+| --- | --- |
+| Alp | 21 |
+| Martin | 21 |
+| Caspar | 20 |
+```
+
+# Latex
+- Eigentlich auch für Dokumentenformatierung entwickelt
+- Sehr angenehm, wenn man mathematische Formeln schreiben will
+- Oft (nicht immer!) auch in Markdown unterschützt
+  - inline math (`$x+y$`): $x+y$
+  - math block (`$$x+y$$`): $$x+y$$
+
+---
+
+`x^2`: $x^2$, `x^{2 + a}`: $x^{2 + a}$
+
+`\frac{1}{1256}`: $\frac{1}{1256}$
+
+
+`\alpha`, `\beta`, `\Gamma`, `\sigma`: $\alpha$, $\beta$, $\Gamma$, $\sigma$
+
+
+`\bar{x}`: $\bar{x}$
+
+`\mathbb{Z}`: $\mathbb{Z}$
+
+`\in`: $\in$
+
+---
+
+```latex
+\int_{0}^{10} x^2 \,dx`
+```
+
+$$\int_{0}^{10} x^2 \,dx$$
+
+---
+
+```latex
+\sum_{i = 0}^{10} x_i`
+```
+
+$$\sum_{i = 0}^{10} x_i$$
+
+---
+
+[Online Latex-Editor](https://latexeditor.lagrida.com)
+
+```latex
+???
+```
+
+$$cov_{emp}(x, y) = \frac{1}{n}\sum_{i=1}^{n}(x_i- \bar{x})(y_i- \bar{y})$$
+
+---
+
+```latex
+???
+```
+
+$$\omega \in \Omega, X(\omega) \in \mathbb{R}$$
+

@@ -33,6 +33,10 @@ format:
 - Container für Objekte (≈ alles)
 - Zuweisung mit `<-`
 
+::: { .exclude }
+In R gibt es auch den Zuweisungsoperator `=`. `<-` wird aber oft bevorzugt.
+:::
+
 ```{r}
 a <- 1
 b <- 2
@@ -98,6 +102,9 @@ a + b
 20 %% 16
 ```
 
+::: { .exclude }
+Der Module gibt den Rest nach ganzzahliger Division an. z.B. passt 16 nur einmal in 20 rein und 4 bleibt übrig. Daher ist `20 %% 16` gleich 4. 
+:::
 
 ### Warum kann R nicht rechnen?
 ```{r}
@@ -112,6 +119,11 @@ a + b
 1 - 1e-17 == 1
 ```
 
+::: { .exclude }
+Es gibt unendlich viele Zahlen, die man bei Computern mit endlich vielen Bits repräsentieren muss. Daher kann nicht jede Zahl in einem Computer exakt dargestellt werden.
+
+Wenn man mit Kommazahlen rechnet, muss man immer aufpassen, dass sowas nicht an kritischen Stellen passiert. Sowas kann sehr wohl Bugs verursachen.
+:::
 
 ## Nicht nur Zahlen!
 
@@ -137,6 +149,12 @@ class(name)
 class(a)
 ```
 
+::: { .exclude }
+Mit `str()`, `typeof()` oder `class()` kann man den Typen von einem Objekt sehen. Character-Objekte (= Texte, wird auch als 'String' bezeichnet) werden unterschiedlich (im vergleich zu Zahlen) behandelt.
+
+Zahlen liegen quasi in einer Zelle. Character-Objekte werden in mehreren Zellen gespeichert, wo die nächste Zelle immer das nächste Zeichen enthält. Diese Zeichen werden übrigens auch als Zahlen gespeichert, z.B. nach [ASCII](https://de.wikipedia.org/wiki/American_Standard_Code_for_Information_Interchange).
+:::
+
 ---
 
 ### 1 vs "1"?
@@ -149,6 +167,10 @@ class("1")
 ```
 
 - Das heißt: `1` $\neq$ `"1"`
+
+::: { .exclude }
+Auch wenn es uns (dank der menschlichen Intuition) ganz klar ist, dass "1" und 1 irgendwie in Beziehung zueinander stehen und austauschbar sind, hat der Computer keine Ahnung!
+:::
 
 ::: { .exclude }
 #### Andere Datentypen

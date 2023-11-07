@@ -7,7 +7,7 @@
 files <- list.files(full.names = FALSE, pattern = "\\.qmd", recursive = T)
 
 # exclude the overview file and common files
-files <- files[grep("overview.qmd", files, invert = TRUE)]
+files <- files[grep("uebersicht.qmd", files, invert = TRUE)]
 # files <- files[grep("common", files, invert = TRUE)]
 
 lectures <- data.frame()
