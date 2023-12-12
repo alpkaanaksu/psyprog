@@ -1,0 +1,27 @@
+---
+title: "Funktionen"
+author:
+  - name: Alp Kaan Aksu
+    email: a.aksu@campus.lmu.de
+  - name: Caspar Schumacher
+    email: C.Schumacher@campus.lmu.de
+  - name: Martin Wiehr
+    email: M.Wiehr@campus.lmu.de
+date: 2023-11-28
+date-format: "DD.MM.YY"
+footer: "Funktionen"
+execute: 
+  echo: true
+  error: true
+format: 
+  clean-revealjs: 
+    output-ext: slide.html
+    transition: slide
+    background-transition: fade
+    touch: true
+    embed-resources: true
+    css: reveal_styles.css
+  html: default
+---
+
+Casper
