@@ -2,3 +2,7 @@
 .exclude {
     display: none;
 }
+
+div.sourceCode {
+    margin: 1rem;
+}

@@ -25,7 +25,15 @@ format:
 
 ![Für was werden die unterschiedlichen Markup Sprachen verwendet?](images/markup.jpeg)
 
-# Markdown
+![Verschiedene Markdown-Outputs (von Felix Schönbrodt)](images/md_products.png)
+
+## HTML
+
+> HTML steht für "Hypertext Markup Language" und ist die Grundlage des World Wide Web. Es handelt sich um eine Auszeichnungssprache, die verwendet wird, um Webseiten zu erstellen und zu strukturieren. HTML ermöglicht es, Texte, Bilder, Links und andere Elemente auf einer Webseite zu organisieren und darzustellen.
+
+- ChatGPT
+
+## Markdown
 
 - Einfache und standisierte Methode, Texte zu formatieren
 
@@ -136,7 +144,8 @@ Man kann auch Tabellen haben:
 | Caspar | 20 |
 ```
 
-# Latex
+# $\LaTeX$
+- Basiert auf $\TeX$ (von Donald Knuth entwickelt)
 - Eigentlich auch für Dokumentenformatierung entwickelt
 - Sehr angenehm, wenn man mathematische Formeln schreiben will
 - Oft (nicht immer!) auch in Markdown unterschützt
@@ -170,7 +179,7 @@ $$\int_{0}^{10} x^2 \,dx$$
 ---
 
 ```latex
-\sum_{i = 0}^{10} x_i`
+\sum_{i = 0}^{10} x_i
 ```
 
 $$\sum_{i = 0}^{10} x_i$$

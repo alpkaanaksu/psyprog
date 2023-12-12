@@ -1,0 +1,280 @@
+---
+title: "Funktionen"
+author:
+  - name: Alp Kaan Aksu
+    email: a.aksu@campus.lmu.de
+  - name: Caspar Schumacher
+    email: C.Schumacher@campus.lmu.de
+  - name: Martin Wiehr
+    email: M.Wiehr@campus.lmu.de
+date: 2023-11-28
+date-format: "DD.MM.YY"
+footer: "Funktionen"
+execute: 
+  echo: true
+  error: true
+format: 
+  clean-revealjs: 
+    output-ext: slide.html
+    transition: slide
+    background-transition: fade
+    touch: true
+    embed-resources: true
+    css: reveal_styles.css
+  html: default
+---
+
+![Funktionen](images/alwayshasbeen.jpg)
+
+# Funktionen
+
+> Eine Funktion (englisch function) ist in der Informatik und in verschiedenen höheren Programmiersprachen die Bezeichnung eines Programmkonstrukts, mit dem der Programm-Quellcode strukturiert werden kann, so dass Teile der Funktionalität des Programms wiederverwendbar sind. ([Wikipedia](https://de.wikipedia.org/wiki/Funktion_(Programmierung)))
+
+- **Wiederverwendbarkeit und Produktivität:** Funktionen ermöglichen die einfache Wiederverwendung von Code in verschiedenen Projekten, was die Produktivität langfristig erhöht.
+- **Verbesserte Verständlichkeit:** Durch aussagekräftige Namen wird der Code klarer und verständlicher.
+- **Zentrale Code-Aktualisierung:** Änderungen müssen nur an einer Stelle im Code vorgenommen werden, nicht an vielen.
+- **Vermeidung von Fehlern:** Das Risiko von Fehlern, die durch Kopieren und Einfügen entstehen können, wird minimiert.
+
+## Wie verwendet man Funktionen?
+
+- Das haben wir die ganze Zeit gemacht: `mean`, `sum`, `read.csv`, `ifelse` sind alle Funktionen
+
+```r
+function_name(parameters)
+```
+
+- Der Funktionsaufruf wird zu einem Wert evaluiert
+
+```r
+value <- function_name(parameters)
+```
+
+### Beispiele
+```{r}
+nums <- c(1, 2, 5, 6)
+
+mean(nums)
+```
+
+```{r}
+sum(nums)
+```
+
+## Optionale Parameter
+- Manche Parameter haben einen Default-Wert, der von uns überschrieben werden kann
+
+```{r}
+nums_na <- c(NA, 1, 2, 5, 6)
+
+mean(nums_na)
+```
+
+```{r}
+mean(nums_na, na.rm = TRUE)
+```
+
+- Default-Werte findet man in der Documentation, z.B. mit `?mean`
+
+---
+
+# Wie schreibt man selber Funktionen?
+
+- `function`s sind auch Objekte und können in Variablen gespeichert werden
+
+```r
+function_name <- function(<function parameters>) {
+    # Code
+}
+```
+### Beispiel
+
+```{r}
+hallo <- function() {
+    print("Hello World!")
+}
+
+class(hallo)
+```
+
+- Wenn man eine Funktion aufrufen will, schreibt man `()` nach dem Funktionsnamen
+
+```{r}
+hallo()
+```
+
+## Funktionsparameter
+
+- Die meisten Funktionen bekommen irgendwelche Daten und arbeiten damit, das ist mithilfe Parameter möglich
+- Mit den Parametern kann man wie mit den Variablen arbeiten
+
+```{r}
+hallo <- function(name) {
+    print(paste("Hallo, ", name))
+}
+
+hallo("Alp")
+```
+
+```{r}
+increment_and_print <- function(number) {
+    print(number + 1)
+}
+
+cal <- increment_and_print(1255)
+```
+
+## Was macht man, wenn man mit dem Ergebnis der Funktion weiterarbeiten will?
+
+- Funktionsaufruf wird zur letzten Zeile in der Funktion evaluiert
+
+```{r}
+increment <- function(number) {
+    number + 1
+}
+
+increment(1255)
+```
+
+---
+
+- Optional kann man auch `return()` verwenden
+- Manchmal ist `return()` sogar notwendig
+
+```{r}
+increment <- function(number) {
+    return(number + 1)
+}
+
+increment(1255)
+```
+
+## Mehrere Parameter
+```{r}
+add <- function(x, y) {
+    x + y
+}
+
+add(622, 634)
+```
+
+---
+
+### Übung: my_mean
+
+- Eigene `mean`-Funktion schreiben
+- Bekommt einen Zahlenvektor als Parameter
+- Hilfe: `sum`, `length`
+
+**Optional**
+
+- Eigene `sum`-Funktion, `my_sum`, schreiben
+- Hilfe: so sieht eine For-Schleife aus:
+```r
+for (number in numbers) {
+    # Mache irgendwas
+}
+```
+
+<!--
+```{r}
+my_sum <- function(numbers) {
+    result <- 0
+
+    for (number in numbers) {
+        result <- result + number
+    }
+
+    result
+}
+```
+
+```{r}
+my_mean <- function(numbers) {
+    numbers_sum <- my_sum(numbers)
+
+    my_sum(numbers) / length(numbers)
+}
+
+my_mean(c(1, 2, 5, 6))
+```
+-->
+
+---
+
+## Default-Werte und Named Arguments
+
+```{r}
+increment <- function(number, step = 1) {
+    number + step
+}
+
+increment(1255)
+```
+
+```{r}
+increment(1250, step = 6)
+```
+
+---
+
+## Custom Binary Operators
+
+```{r}
+1 %in% c(1, 2, 5, 6)
+```
+
+```{r}
+7 %in% c(1, 2, 5, 6)
+```
+
+- Einfach nur binäre Funktionen mit einem besonderen Namen `%<Funktionsname>%`
+
+```{r}
+"%addx2%" <- function(number1, number2) {
+    number1 + number2 * 2
+}
+
+1056 %addx2% 100
+```
+
+---
+
+### Übung
+
+- Teilbarkeitsfunktion als Custom Operator
+- `%teilbar%`
+- z.B. `1256 %teilbar% 2` ist `TRUE`
+
+<!--
+```{r}
+"%teilbar%" <- function(number, divisor) {
+    number %% divisor == 0
+}
+
+9 %teilbar% 3
+```
+-->
+
+## Ellipsis
+
+- Manche Funktionen bekommen eine unbegrenzten Anzahl an Parameter
+
+```{r}
+paste("Ich", "weiß", "nicht,", "was", "ich", "gerade", "mache.")
+```
+
+- `?paste` zeigt `...`
+
+---
+
+```{r}
+hey <- function(...) {
+    our_names <- list(...)
+
+    for (name in our_names) {
+        print(paste("Hey,", name))
+    }
+}
+
+hey("Alp", "Martin", "Caspar")
+```

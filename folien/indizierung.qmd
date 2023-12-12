@@ -1,0 +1,31 @@
+---
+title: "Indizierung"
+author:
+  - name: Alp Kaan Aksu
+    email: a.aksu@campus.lmu.de
+  - name: Caspar Schumacher
+    email: C.Schumacher@campus.lmu.de
+  - name: Martin Wiehr
+    email: M.Wiehr@campus.lmu.de
+date: 2023-11-14
+date-format: "DD.MM.YY"
+footer: "Indizierung"
+execute: 
+  echo: true
+  error: true
+format: 
+  clean-revealjs: 
+    output-ext: slide.html
+    transition: slide
+    background-transition: fade
+    touch: true
+    embed-resources: true
+    css: reveal_styles.css
+  html: default
+---
+
+# Indizierung mit Zahlen
+...
+
+# Indizierung mit einem Logical-Vector
+...

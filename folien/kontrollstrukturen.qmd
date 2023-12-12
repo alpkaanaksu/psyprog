@@ -1,0 +1,432 @@
+---
+title: "Kontrollstrukturen"
+author:
+  - name: Alp Kaan Aksu
+    email: a.aksu@campus.lmu.de
+  - name: Caspar Schumacher
+    email: C.Schumacher@campus.lmu.de
+  - name: Martin Wiehr
+    email: M.Wiehr@campus.lmu.de
+date: 2023-11-14
+date-format: "DD.MM.YY"
+footer: "Kontrollstrukturen"
+execute: 
+  echo: true
+  error: true
+format: 
+  clean-revealjs: 
+    output-ext: slide.html
+    transition: slide
+    background-transition: fade
+    touch: true
+    embed-resources: true
+    css: reveal_styles.css
+  html: default
+---
+
+# Logicals in R
+
+- `TRUE`, `FALSE` (Auch `T` und `F` sind valide in R. Die sind aber nicht schön.)
+    - *wahr* oder *falsch*
+- Das Konzept existiert in allen Programmiersprachen
+    - Oft nennt man solche Werte *Booleans* (nach [George Boole](https://en.wikipedia.org/wiki/George_Boole))
+
+```{r}
+typeof(TRUE)
+```
+
+## Vergleichsoperatoren (Relational Operators)
+
+- Werte werden miteinander verglichen
+- Das Ergebnis ist immer ein Logical
+
+### Gleichheit `==`
+- `TRUE`, wenn beide Werte gleich sind, sonst `FALSE`
+
+```{r}
+"Alp" == "Alp"
+```
+
+```{r}
+"Alp" == "Martin"
+```
+
+```{r}
+1256 == 1256
+```
+
+```{r}
+1256 == 6521
+```
+
+---
+
+### Nochmal kurz zur ersten Woche
+
+```{r}
+0.1 + 0.2 == 0.3
+```
+
+```{r}
+abs((0.1 + 0.2) - 0.3) < 1e-14
+```
+
+- `abs(x)` = $|x|$
+
+---
+
+### Andere Vergleichsoperatoren
+
+- `>`
+- `<`
+- `>=`
+- `<=`
+
+```r
+if (age > 40) {
+    print("Du bist alt!")
+} 
+```
+
+---
+
+## `&` (und) und `|` (oder)
+
+- Mehrere Bedingungen miteinander verknüpfen
+- `bedingung1 & bedingung2` wird nur dann wahr, wenn beide Bedingungen `TRUE` sind
+- `bedingung1 | bedingung2` ist wahr, wenn eine von den beiden Bedingungen `TRUE` ist oder beide Bedingungen gleichzeitig `TRUE` sind.
+
+```{r}
+name <- "Simeon"
+name == "Alp" | name == "Martin" | name == "Caspar"
+```
+
+```{r}
+name <- "Caspar"
+name == "Alp" | name == "Martin" | name == "Caspar"
+```
+
+---
+
+### `&`/`|` vs `&&`/`||`: Vectorization in R
+
+- Die meisten Operatoren und viele Funktionen in R sind *vectorized*. D.h. sie können direkt auf Vektoren angewendet werden.
+- `&` kann mit Logical-Vektoren arbeiten, `&&` nicht
+
+```{r}
+num <- 12
+num > 10 & num %% 2 == 0
+```
+
+```{r}
+num <- 12
+num > 10 && num %% 2 == 0
+```
+
+```{r}
+nums <- 1:20
+nums > 10 & nums %% 2 == 0
+```
+
+```{r}
+nums <- 1:20
+nums > 10 && nums %% 2 == 0
+```
+
+---
+
+# Kontrollstrukturen
+
+- Programme laufen nicht immer gleich
+- Manche Befehle müssen nur bedingt ausgeführt werden
+- Manche Befehle müssen mehrmals ausgeführt werden
+
+---
+
+## If
+
+```r
+if (<Bedingung>) {
+    # Mache irgendwas
+}
+```
+
+```r
+if (<Bedingung>) {
+    # Mache irgendwas
+} else {
+    # Mache was anderes
+}
+```
+
+```r
+if (<Bedingung>) {
+    # Mache irgendwas
+} else if (<Bedingung>) {
+    # Mache was anderes
+} else {
+    # ...
+}
+```
+
+---
+
+```{r}
+num <- 1256
+
+if (num == 1256) {
+    print("😌")
+} else {
+    print("🤮")
+}
+```
+
+```{r}
+num <- 1257
+
+if (num == 1256) {
+    print("😌")
+} else {
+    print("🤮")
+}
+```
+
+---
+
+```{r}
+lv <- "Methoden der Datenerhebung" # Lehrveranstaltung
+
+raum <- if (lv == "Sozialpsychologie") {
+    "Irgendwo im Hauptgebäude"
+} else if (lv == "Methoden der Datenerhebung") {
+    "Ein Seminarraum im Schweinchenbau"
+} else {
+    NA
+}
+
+raum
+```
+
+---
+
+# Indizierung mit Logicals
+
+```r
+data[ , ]
+```
+
+```{r}
+# Erstellen eines Datensatzes mit 100 Personen
+
+set.seed(123)  # Setzt einen Seed für die Reproduzierbarkeit
+
+data<- data.frame(
+  Name = paste0("Person ", 1:100),
+  Alter = sample(18:40, 100, replace = TRUE),  # Zufällige Auswahl von Alterswerten zwischen 18 und 40
+  Studienfach = sample(c("Psychologie", "Informatik", "Soziologie", "Biologie", "Mathematik"), 100, replace = TRUE)
+)
+
+head(data, 10)
+```
+
+---
+
+- Alle Personen, die älter als 20 sind.
+- Alle Personen, die Psychologie studieren. (Nur die Namen)
+- Alle Personen, die Psychologie studieren und älter als 30 sind.
+- Alle Personen, die Mathematik oder Informatik studieren.
+- Alle Personen, die älter als der Durchschnitt sind.
+- Alle Personen, für die gilt:
+    - Studienfach: Biologie oder Soziologie
+    - Alter ungerade
+
+---
+
+### `ifelse`-Funktion
+
+```
+ifelse(<Bedingung>, <Wert wenn TRUE>, <Wert wenn FALSE>)
+```
+
+- Funktioniert auch mit Vektoren
+
+```{r}
+# FUNKTIONIERT NICHT!
+nums = c(1, 2, 5, 6)
+
+if (nums %% 2 == 0) {
+    "gerade"
+} else {
+    "ungerade"
+}
+```
+
+```{r}
+nums = c(1, 2, 5, 6)
+
+ifelse(nums %% 2 == 0, "gerade", "ungerade")
+```
+
+## Schleifen (Loops)
+
+- Etwas wiederholt ausführen
+
+### While
+
+-  Etwas wiederholen, solange die Bedingung *wahr* (`TRUE`) ist
+
+```r
+while (<Bedingung>) {
+    # ...
+}
+```
+
+---
+
+### For
+
+- Über eine Liste / einen Vektor / eine Sequenz iterieren
+- Oft `i` als Variable (steht für *iterator*)
+  - Aber man sollte wahrscheinlich aussagekräftigere Namen verwenden
+
+```r
+for (i in 1:10) {
+    print(i)
+}
+```
+
+```r
+names <- c("Alp", "Martin", "Caspar")
+
+for (name in names) {
+    print(name)
+}
+```
+
+---
+
+#### Andere nützliche Funktionen für For-Schleifen
+`seq_along(x)`: Eine Sequenz mit allen validen Indizes zurück, funktioniert auch für Fälle, wo `x` leer ist
+
+![Use seq_along(x) istead of 1:length(x) warning](images/seq_along.png)
+
+```r
+for (indicator_index in seq_along(indicators)) {
+    
+}
+```
+
+::: { .exclude }
+
+```{r}
+names <- c("Alp", "Martin", "Caspar", "Simeon", "Steffi", "David")
+
+for (i in 1:3) {
+  print(i)
+  print(names[i])
+}
+```
+
+```{r}
+for (name in names) {
+  print(name)
+}
+```
+
+```{r}
+for (i in seq_along(names)) {
+  print(i)
+  print(names[i])
+}
+```
+
+:::
+
+`unique(x)`: Alle eindeutige/einzigartige Werte
+
+```{r}
+unique(c("a", "a", "a", "b", "b", "b", "c", "c", "c"))
+```
+
+- Nützlich, wenn man z.B. über die Versuchspersonen-IDs iterieren will
+
+```r
+for (id in unique(data$person_id)) {
+  # Mache irgendwas mit einer konkreten Versuchsperson
+}
+
+```
+
+---
+
+Wie könnte man die folgende For-Schleife in eine While-Schleife übersetzen?
+
+```r
+for (i in 1:1256) {
+    print(i)
+}
+```
+
+```{r}
+i = 1
+
+while (i <= 1256) {
+    print(i)
+
+    i = i + 1;
+}
+```
+
+---
+
+[Wikipedia: Fizz buzz](https://en.wikipedia.org/wiki/Fizz_buzz)
+
+ - *Fizz* wenn durch 3 teilbar
+ - *Buzz* wenn durch 5 teilbar
+ - *FizzBuzz* wenn durch 3 und 5 teilbar
+
+> 1 2 Fizz 4 Buzz Fizz 7 8 Fizz Buzz 11 Fizz 13 14 FizzBuzz 16 17 Fizz 19 Buzz Fizz 22 ...
+
+<!--
+ ```{r}
+ for (i in 1:100) {
+    if (i %% 3 == 0 & i %% 5 == 0) {
+        cat("FizzBuzz")
+    } else if (i %% 3 == 0) {
+        cat("Fizz")
+    } else if (i %% 5 == 0) {
+        cat("Buzz")
+    } else {
+        cat(i)
+    }
+
+    cat(" ")
+ }
+ ```
+ -->
+
+---
+
+```{r}
+# Simulieren von Daten für verschiedene Bedingungen
+set.seed(123)
+data <- data.frame(
+  condition = rep(c("A", "B", "C"), each = 20),
+  score = rnorm(60, mean = c(10, 15, 20), sd = 2)
+)
+
+conditions <- c("A", "B", "C")
+
+head(data, 5)
+```
+
+- Für jede Condition den Mittelwert berechnen
+
+```{r}
+#| echo: false
+# Berechnung desMittelwerts für jede Bedingung
+for (condition in conditions) {
+    print(condition)
+    print(mean(data$score[data$condition == condition]))
+}
+```

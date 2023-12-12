@@ -1,0 +1,278 @@
+---
+title: "Tidyverse"
+author:
+  - name: Caspar Schumacher
+    email: C.Schumacher@campus.lmu.de
+date: 2023-12-12
+date-format: "DD.MM.YY"
+footer: "Tidyverse"
+execute: 
+  echo: true
+  error: true
+format: 
+  clean-revealjs: 
+    output-ext: slide.html
+    transition: slide
+    background-transition: fade
+    touch: true
+    embed-resources: true
+    css: reveal_styles.css
+  html: default
+---
+
+[tidyverse.org](https://www.tidyverse.org) | [Cheatsheet](https://nyu-cdsc.github.io/learningr/assets/data-transformation.pdf)
+
+- Sammlung von R-Paketen für Datenanalyse
+- Die Pakete arbeiten sehr gut zusammen
+- entwickelt von [Hadley Wickham](https://hadley.nz)
+
+### Hauptkomponenten des tidyverse
+
+1. **ggplot2**: Für datengetriebene Visualisierung; ermöglicht das Erstellen komplexer Grafiken aus Daten in einem data frame.
+2. **dplyr**: Bietet Funktionen zur Datenmanipulation, wie das Filtern von Zeilen, das Auswählen von Spalten, das Umordnen von Daten und vieles mehr.
+3. **tidyr**: Hilft dabei, Daten zu "bereinigen". Es ermöglicht das Umwandeln von Daten in ein formatiertes Layout, das einfacher zu analysieren und zu visualisieren ist.
+4. **readr**: Vereinfacht das Einlesen von flachen Dateien (wie CSV, TSV) in R.
+5. **purrr**: Ermöglicht funktionales Programmieren in R, was hilft, Code effizienter und weniger fehleranfällig zu gestalten.
+6. **tibble**: Eine moderne Variante des data frame, die lesbarer und einfacher zu handhaben ist.
+7. **stringr**: Spezialisiert auf das Arbeiten mit Strings (Text), bietet konsistente Werkzeuge zur String-Manipulation.
+8. **forcats**: Hilft bei der Arbeit mit kategorischen Variablen (Faktoren in R).
+
+### Warum das tidyverse verwenden?
+
+
+**Tidy Data** *nach Hadley Wickham*
+
+There are three interrelated rules which make a dataset tidy:
+
+- Each variable must have its own column.
+- Each observation must have its own row.
+- Each value must have its own cell.
+
+#### Tidy?
+
+| Interviewee | Alter | Bildungsabschlüsse          | Berufserfahrung (Jahre) |
+|-------------|-------|-----------------------------|------------------------|
+| Maria       | 34    | Bachelor, Master            | 5, 3                   |
+| John        | 28    | Ausbildung, Bachelor        | 4                      |
+| Ali         | 45    | Promotion                   | 10, 7, 3               |
+
+
+::: { .exclude }
+
+> **Tidy Data**: Das tidyverse basiert auf dem Konzept von 'tidy data', bei dem Daten so organisiert werden, dass jede Variable eine Spalte, jede Beobachtung eine Zeile und jeder Wertetyp eine Zelle bildet. Dies erleichtert die Datenmanipulation und -analyse.
+> 
+1. **Konsistenz**: Die Pakete des tidyverse arbeiten nahtlos zusammen, was den Lern- und Anwendungsprozess vereinfacht.
+2. **Lesbarkeit und Einfachheit**: Der Code ist oft intuitiver und leichter lesbar, besonders für Anfänger.
+3. **Datenmanipulation und -analyse**: Es bietet leistungsfähige Werkzeuge für die häufigsten Aufgaben in der Datenanalyse.
+4. **Integration mit modernen R-Praktiken**: tidyverse-Pakete sind oft an der Spitze der R-Entwicklung und integrieren gut mit modernen R-Praktiken und anderen Paketen.
+5. **Community und Ressourcen**: Es gibt eine große und aktive Community, die bei Problemen unterstützt. Außerdem gibt es zahlreiche Lernressourcen und Beispiele.
+6. **Datenvorbereitung für Visualisierung und Modellierung**: Daten können effizient für nachfolgende Schritte wie Visualisierung (mit `ggplot2`) und statistische Modellierung vorbereitet werden.
+
+:::
+
+## Nutzung des tidyverse
+
+1. **Installation und Laden**:
+- installieren: `install.packages("tidyverse")`
+- laden: `library(tidyverse)`.
+2. **Daten einlesen**:  `readr`Funktionen, um Daten einzulesen, z.B. `read_csv()` für CSV-Dateien.
+
+## Nutzung dplyr
+
+1. `filter()`: Wird verwendet, um Zeilen auf Basis von Bedingungen auszuwählen.
+    - **Beispiel**: Auswahl von Studenten in einem Datensatz, die über 20 Jahre alt sind.
+    - **Veranschaulichung**: `filter(students, age > 20)`
+2. `select()`: Dient zum Auswählen bestimmter Spalten in einem Datensatz.
+    - **Beispiel**: Auswählen der Spalten 'Name' und 'Alter' aus einem Datensatz.
+    - **Veranschaulichung**: `select(students, name, age)`
+3. `arrange()`: Sortiert die Zeilen eines Datensatzes.
+    - **Beispiel**: Sortieren der Studenten nach ihrem Alter.
+    - **Veranschaulichung**: `arrange(students, age)`
+4. `mutate()`: Erzeugt neue Spalten oder verändert bestehende.
+    - **Beispiel**: Hinzufügen einer neuen Spalte, die das Alter in Monaten zeigt.
+    - **Veranschaulichung**: `mutate(students, age_in_months = age * 12)`
+5. `summarise()`: Erstellt Zusammenfassungen, z.B. Mittelwerte oder Summen.
+    - **Beispiel**: Berechnung des Durchschnittsalters der Studenten.
+    - **Veranschaulichung**: `summarise(students, average_age = mean(age))`
+6. `group_by()`: Wird oft in Kombination mit `summarise()` verwendet, um Zusammenfassungen innerhalb von Gruppen zu erstellen.
+    - **Beispiel**: Berechnung des Durchschnittsalters der Studenten nach Geschlecht.
+    - **Veranschaulichung**: `students %>% group_by(gender) %>% summarise(average_age = mean(age))`
+7. `join()` Funktionen: Zum Verbinden von zwei Datensätzen, z.B. `inner_join()`, `left_join()`.
+    - **Beispiel**: Zusammenführen von Daten über Studenten und ihre Kurse.
+    - **Veranschaulichung**: `inner_join(students, courses, by = "student_id")`
+    
+## in R:
+
+### Datensatz:
+
+[students_data.csv](data/students_data.csv)
+
+```{r}
+library(magrittr)
+library(httr)
+
+students <- GET("https://rpsyche.de/folien/data/students_data.csv") %>%
+  content("text") %>%
+  read.csv(text = .)
+
+students
+```
+
+```r
+# Laden des tidyverse-Pakets
+library(tidyverse)
+
+# Laden des Datensatzes
+students <- read_csv("path/to/students_data.csv")
+
+# 1. filter(): Auswahl von Studenten über 20 Jahre
+students_over_20 <- filter(students, age > 20)
+
+# 2. select(): Auswahl der Spalten 'name' und 'major'
+students_name_major <- select(students, name, major)
+
+# 3. arrange(): Sortieren der Studenten nach Alter
+students_sorted_by_age <- arrange(students, age)
+
+# 4. mutate(): Hinzufügen einer neuen Spalte für das Alter in Monaten
+students_with_age_in_months <- mutate(students, age_in_months = age * 12)
+
+# 5. summarise(): Berechnung des Durchschnittsalters der Studenten
+average_age <- summarise(students, average_age = mean(age))
+
+# 6. group_by() und summarise(): Durchschnittsalter nach Geschlecht
+average_age_by_gender <- students %>%
+                          group_by(gender) %>%
+                          summarise(average_age = mean(age))
+
+```
+
+## Pipe operator:
+
+### Grundkonzept des Pipe-Operators `%>%`:
+
+- Weitergabe von Daten
+- Ketten von Befehlen
+- Lesbarkeit und Klarheit
+
+
+#### Base-R `|>`
+- Seit einem Jahr auch einen Pipe-Operator in R
+
+### Beispiel ohne Pipe-Operator:
+
+Stellt euch  vor, ihr habt den Datensatz `students`, und möchtet zuerst die Daten **filtern**, dann eine neue **Spalte** **hinzufügen** und schließlich die Daten **sortieren**. 
+
+Ohne den Pipe-Operator:
+
+```r
+sorted_data = arrange(mutate(filter(students, age > 20), age_in_months = age * 12), age)
+```
+
+### Beispiel mit Pipe-Operator:
+
+Gleicher Prozess unter Verwendung des **Pipe-Operators**: 
+
+```r
+students %>%
+  filter(age > 20) %>%
+  mutate(age_in_months = age * 12) %>%
+  arrange(age)
+```
+::: { .exclude }
+
+In diesem Beispiel:
+
+- Wir beginnen mit dem Datensatz `students`.
+- Dann filtern wir (`filter(age > 20)`) die Daten, um nur die Studenten über 20 Jahre zu behalten.
+- Als Nächstes fügen wir (`mutate(age_in_months = age * 12)`) eine neue Spalte für das Alter in Monaten hinzu.
+- Schließlich sortieren wir (`arrange(age)`) die Daten nach dem Alter.
+
+Jeder Schritt wird klar definiert, und der Output jeder Funktion wird automatisch als Input für die nächste Funktion übergeben.
+
+:::
+
+# Übungen:
+
+### Übung 1: Grundlegend
+
+**Aufgabe**: Erstelle eine neue Tabelle, die nur die Namen und Hauptfächer der Studenten enthält, die älter als 20 Jahre sind. Sortiere diese Tabelle anschließend nach dem Hauptfach in aufsteigender Reihenfolge.
+
+<!-- **Ziel**: Diese Übung soll den Umgang mit `filter()`, `select()` und `arrange()` vermitteln. -->
+
+<!--
+### Lösungen:
+
+```r
+# Lösung für Übung 1
+students %>%
+  filter(age > 20) %>%
+  select(name, major) %>%
+  arrange(major)
+```
+
+-->
+
+### Übung 2: Mittel
+
+**Aufgabe**: Füge dem Datensatz eine Spalte hinzu, die das Alter in Tagen (angenommen jedes Jahr hat 365 Tage) zeigt. Erstelle dann eine Zusammenfassung, die das durchschnittliche Alter in Tagen für jedes Hauptfach berechnet.
+
+<!--
+**Ziel**: Diese Übung zielt darauf ab, die Anwendung von `mutate()` und die Kombination von `group_by()` mit `summarise()` zu üben. -->
+
+<!--
+### Lösung:
+
+```r
+# Lösung für Übung 2
+students %>%
+  mutate(age_in_days = age * 365) %>%
+  group_by(major) %>%
+  summarise(average_age_in_days = mean(age_in_days))
+```
+-->
+
+### **Übung 3: Fortgeschritten**
+
+**Aufgabe**: Erstelle einen Bericht, der folgendes enthält:
+
+1. Eine Liste der Top 2 ältesten Studenten in jedem Hauptfach.
+2. Eine Berechnung des Anteils der weiblichen Studenten im Datensatz.
+3. Eine Tabelle, die das jüngste und älteste Alter für jedes Hauptfach anzeigt.
+
+**Hilfe:**
+
+- `slice_max()` wählt die obersten N Zeilen mit den höchsten Werten in einer bestimmten Spalte aus.
+- `mean()` berechnet den Mittelwert
+- `min()` und `max()` berechnen den minimalen (`min()`) bzw. maximalen (`max()`) Wert einer Spalte.
+    
+
+<!--
+```r
+# Lösung für Übung 3
+# Teil 1: Top 2 ältesten Studenten in jedem Hauptfach
+top_students_by_major <- students %>%
+  group_by(major) %>%
+  arrange(desc(age)) %>%
+  slice_max(order_by = age, n = 2)
+
+# Teil 2: Anteil der weiblichen Studenten
+female_percentage <- students %>%
+  summarise(percentage_female = mean(gender == "female") * 100)
+
+# Teil 3: Jüngstes und ältestes Alter für jedes Hauptfach
+age_range_by_major <- students %>%
+  group_by(major) %>%
+  summarise(youngest = min(age), oldest = max(age))
+
+# Ausgabe der Ergebnisse
+print("Top 2 ältesten Studenten in jedem Hauptfach:")
+print(top_students_by_major)
+
+print("Anteil der weiblichen Studenten:")
+print(female_percentage)
+
+print("Jüngstes und ältestes Alter für jedes Hauptfach:")
+print(age_range_by_major)
+```
+-->
