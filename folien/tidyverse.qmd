@@ -200,7 +200,6 @@ Jeder Schritt wird klar definiert, und der Output jeder Funktion wird automatisc
 
 <!-- **Ziel**: Diese Übung soll den Umgang mit `filter()`, `select()` und `arrange()` vermitteln. -->
 
-<!--
 ### Lösungen:
 
 ```r
@@ -211,8 +210,6 @@ students %>%
   arrange(major)
 ```
 
--->
-
 ### Übung 2: Mittel
 
 **Aufgabe**: Füge dem Datensatz eine Spalte hinzu, die das Alter in Tagen (angenommen jedes Jahr hat 365 Tage) zeigt. Erstelle dann eine Zusammenfassung, die das durchschnittliche Alter in Tagen für jedes Hauptfach berechnet.
@@ -220,7 +217,6 @@ students %>%
 <!--
 **Ziel**: Diese Übung zielt darauf ab, die Anwendung von `mutate()` und die Kombination von `group_by()` mit `summarise()` zu üben. -->
 
-<!--
 ### Lösung:
 
 ```r
@@ -230,7 +226,6 @@ students %>%
   group_by(major) %>%
   summarise(average_age_in_days = mean(age_in_days))
 ```
--->
 
 ### **Übung 3: Fortgeschritten**
 
@@ -247,7 +242,6 @@ students %>%
 - `min()` und `max()` berechnen den minimalen (`min()`) bzw. maximalen (`max()`) Wert einer Spalte.
     
 
-<!--
 ```r
 # Lösung für Übung 3
 # Teil 1: Top 2 ältesten Studenten in jedem Hauptfach
@@ -275,4 +269,3 @@ print(female_percentage)
 print("Jüngstes und ältestes Alter für jedes Hauptfach:")
 print(age_range_by_major)
 ```
--->
