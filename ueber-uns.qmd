@@ -21,6 +21,11 @@ Auch ich bin Psychologiestudent im 3. Semester. Programmieren fand ich schon imm
 
 {{< fa brands github >}} [CasparSchumacher](https://github.com/CasparSchumacher)
 
+## Benedikt Ehrenwirth
+Auch ich studiere zusammen mit den anderen Psychologie im 3. Semester. Ich interessiere mich privat für informatische Themen und glaube, dass einem bereits ein grundlegendes Verständnis der Prinzipien des Programmierens genug mit an die Hand gibt, um die eigenen Programmierprojekte selbstständig auszubauen.
+
+{{< fa brands github >}} [Benedikt Ehrenwirth](https://github.com/Cornflames)
+
 ---
 
 Vielen Dank an [Prof. Dr. Felix Schönbrodt](https://www.psy.lmu.de/pm/personen/lehrstuhlmitarbeiter/schoenbrodt/index.html) für seine Hilfe und Unterstützung.
