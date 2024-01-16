@@ -1,11 +1,11 @@
 ---
-title: "Rmarkdown & Good coding practices"
+title: "RMarkdown"
 author:
-  - name:
-    email:
+  - name: Benedikt Ehrenwirth 
+    email: B.Ehrenwirth@campus.lmu.de
 date: 2023-12-12
 date-format: "DD.MM.YY"
-footer: "RMarkdown & Good coding practices"
+footer: "RMarkdown"
 execute: 
   echo: true
   error: true
@@ -20,27 +20,72 @@ format:
   html: default
 ---
 
+## Installieren
+
+### RMarkdown
+
+```r
+install.packages("rmarkdown")
+```
+
+### Zotero
+
+<https://www.zotero.org/download/>
+
+#### Better BibTex for Zotero
+
+<https://retorque.re/zotero-better-bibtex/installation/index.html>
+
+### papaja
+
+```r
+if(!requireNamespace("tinytex", quietly = TRUE)) install.packages("tinytex")
+
+tinytex::install_tinytex()
+```
+
+```r
+install.packages("papaja")
+```
+
+```{r}
+library(papaja)
+```
+
 ## Was ist RMarkdown?
 
-Kurz gesagt ist RMarkdown grundsätzlich eine Erweiterung der Markdown-Syntax, die es uns ermöglicht, R-Code und dessen Output in unseren Markdown-Text einzubetten (und weitere Formattierungen vorzunehmen). Darüber hinaus ist RMarkdown ein Paket, das es möglicht macht, diesen Markdown-Text zu komplizierten, professionellen Dokumenten in verschiedenen Formaten zu rendern.
+- Eine Erweiterung der Markdown-Syntax, die es uns ermöglicht, R-Code und dessen Output in unseren Markdown-Text einzubetten (und weitere Formattierungen vorzunehmen)
+- Dieser Markdown-Text kann zu komplizierten, professionellen Dokumenten in verschiedenen Formaten gerendert werden
 
+::: { .exclude }
 Auch wenn es komplizierter klingt, ist es oft sehr viel einfacher, zeitsparender und automatisierter, als Formatierungen in WYSIWYG-Programmen wie Word händisch vorzunehmen. Darüber hinaus bietet es noch weitere Vorteile.
+:::
 
 ### Welche Vorteile bietet Markdown?
 
-Markown ermöglicht es, die Formattierung von Text ebenfalls als Text in diesen zu integrieren. Ein Computer kümmert sich dann darum, den Markup-Text zu einem schönen Dokument zu rendern. Das birgt den großen Vorteil, dass wir beim Texteschreiben nicht an ein Textprogramm gebunden sind, das Formatierungen typischerweise in seinem eigenen Format speichert. Derselbe "abstrakte" Markup-Text kann hingegen von unterschiedlichen Programmen auf unterschiedliche Weise gerendert werden. Wir können also für verschiedene Dokumentformate verschiedene Programme nutzen, die die einfachen Markdown-Formatierungen zu beliebig komplizierten dokumentspezifischen Formatierungen (z.B. APA-Style!) rendert.
+- Markown ermöglicht es, die Formattierung von Text ebenfalls als Text in diesen zu integrieren. Ein Computer kümmert sich dann darum, den Markup-Text zu einem schönen Dokument zu rendern.
+- Wir sind an kein Textprogramm gebunden, das Formatierungen typischerweise in seinem eigenen Format speichert.
+  - "abstrakter" Markup-Text kann hingegen von unterschiedlichen Programmen auf unterschiedliche Weise gerendert werden.
+- Wir können also für verschiedene Dokumentformate verschiedene Programme nutzen, die die einfachen Markdown-Formatierungen zu beliebig komplizierten dokumentspezifischen Formatierungen (z.B. APA-Style!) rendert.
 
 ### Welche Vorteile bietet das Einbetten von R-Code?
 
 Als Psychologen berichten wir häufig Daten und Berechnungen. Statt dem händischen Copy-und-Pasten aus Datensätzen oder den Ergebnissen unseres Taschenrechners, können wir den Code zur Berechnung und Datenextraktion direkt in unsere .Rmd-Datei schreiben und ihren Output einbetten.
 
-Das hat entscheidende Vorteile: - Wir und andere sehen, wo und wie wir etwas gemacht haben, Code und Text sind in einem Dokument vereint. - Bei Änderungen der Daten oder Berechnungsverfahren müssen wir die Ergebnisse nicht händisch neu einfügen, sondern können den Code einfach neu ausführen! (Solange der Code nach wie vor anwendbar ist) - Wir vermeiden Fehler beim Copy-und-Pasten!!!
+Das hat entscheidende Vorteile:
+
+- Wir und andere sehen, wo und wie wir etwas gemacht haben, Code und Text sind in einem Dokument vereint.
+- Bei Änderungen der Daten oder Berechnungsverfahren müssen wir die Ergebnisse nicht händisch neu einfügen, sondern können den Code einfach neu ausführen! (Solange der Code nach wie vor anwendbar ist)
+- Wir vermeiden Fehler beim Copy-und-Pasten!!!
 
 ## Wie sieht eine .Rmd-Datei genau aus?
 
 ### Was sind Codezellen?
 
-Codezellen sind abgeschlossene Blöcke zwischen unserem regulären Markdown-Text, der R-Code enthält. Man unterscheidet: 1. R code-chunks: Mehrzeilige Codeblöcke 2. Inline R-code: einzeiliger, mitten im Text eingebetter Block mit einem R-Befehl.
+Codezellen sind abgeschlossene Blöcke zwischen unserem regulären Markdown-Text, der R-Code enthält. Man unterscheidet:
+
+1. R code-chunks: Mehrzeilige Codeblöcke 
+2. Inline R-code: einzeiliger, mitten im Text eingebetter Block mit einem R-Befehl.
 
 Das Output-Verhalten von Code-Chunks kann durch sogenannte chunk-options am Anfang eines Blocks gesteuert werden.
 
@@ -49,3 +94,68 @@ Das Output-Verhalten von Code-Chunks kann durch sogenannte chunk-options am Anfa
 Der YAML-Header ist ein Abschnitt am Anfang unserer .Rmd-Datei, der nicht im finalen Dokument enthalten sein wird. Dennoch hat er einen Einfluss auf das finale Dokument und ist sehr wichtig.
 
 Das liegt daran, dass er Metadaten über unser Dokument enthält, anhand deren Festlegung wir den Renderprozess und das finale Dokument steuern können. Man könnte also sagen, dass er die "Einstellungen" unseres Dokumentes darstellt.
+
+# Papaja
+
+- **P**reparing **APA** **J**ournal **A**rticles
+- Papaja macht es einfach, Dokumente nach APA-Vorgaben zu erstellen
+
+## Zitieren
+
+- Zitiere die Paper mit folgenden DOIs:
+  - <https://doi.org/10.3390/vaccines11121795>
+  - <https://doi.org/10.1026/0033-3042/a000590>
+  - <https://doi.org/10.3389/fpsyg.2015.01061>
+
+- Probiere dabei die unterschiedlichen Zitationstypen: <https://frederikaust.com/papaja_man/writing.html#citations>
+
+---
+
+- Die genannten Paper ins Zotero importieren
+- Aus Zotero eine .bib-Datei exportieren.
+- Komplette Bibliothek: Menü Datei -> Bibliothek exportieren -> Format wählen: "Better BibTex" oder "BibTex"
+- Ausgewählte Referenzen: Referenzen markieren -> Rechtsklick -> Exportieren -> Format wählen: "Better BibTex" oder "BibTex"
+- Die .bib-Datei auch in dem Ordner mit dem R-Projekt speichern
+- Im papaja-Rmd-Dokument in der YAML-Präambel die eigene bib-Datei hinzufügen (dabei die "r-references.bib" stehen lassen):
+`bibliography : ["r-references.bib", "RPsyche.bib"]`
+- Die Referenzen anhand ihres "citation key" im Rmd einbinden.
+
+## `apa_print`
+
+# Übungsaufgaben
+
+Wir führen den folgenden t-Test durch:
+
+---
+
+```{r}
+# t-Test with random samples
+result <- t.test(rnorm(50), rnorm(50))
+```
+Und wollen die Ergebnisse in Papaja berichten.
+
+1. Übergib die Ergebnisse der 'apa_print' Funktion und speichere sie in einer neuen Variable 'result_apa' ab. Vergleiche den Inhalt der beiden Variablen. Welche Werte erkennst du wieder?
+
+```{r}
+# Normaler output
+result
+# Ergebnisse im APA-Format, bereits formattiert
+result_apa <- apa_print(result)
+result_apa
+```
+
+2. Gib die Elemente 'estimate', 'statistic' und 'full_result' unserer Ergebnisse einzeln aus. Woraus setzt sich 'full_result' zusammen?
+```{r}
+result_apa$estimate
+result_apa$statistic
+# 'full_result' besteht aus 'estimate' und 'statistic'
+result_apa$full_result
+```
+
+3. Das Element 'table' enthält die Ergebnisse in Tabellenform. Erstelle eine APA-Tabelle von diesen Ergebnissen mit der 'apa_table' Funktion.
+```{r}
+apa_table(
+  result_apa$table,
+  caption = "Result of our t-Test"
+)
+```
