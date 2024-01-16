@@ -43,9 +43,18 @@ format:
 
 ## Wichtige Konzepte
 
+![Git Concepts](images/git.jpeg)
+
 - **Repository**: Ein Speicherort für Projektdateien und ihre Versionshistorie
 - **Commit**: Änderungen endgültig speichern
 - **Push**: Das Übertragen lokaler Commits zu einem Remote-Repository (z.B. GitHub)
 - **Pull**: Das Abrufen und Integrieren von Änderungen aus einem Remote-Repository in das lokale Repository
 - **Clone**: Eine Kopie des gesamten Repositories von einem Remote-Repository auf den lokalen Computer
 - **Branch**: Eine parallele Version des Repositories zur isolierten Entwicklung
+
+---
+
+## Git-GitHub-RStudio Workshop (self-paced tutorial) von dem LMU Open Science Center
+
+- **Erster Teil**: <https://malikaihle.github.io/Introduction-RStudio-Git-GitHub>
+- **Zweiter Teil**: <https://malikaihle.github.io/Collaborative-RStudio-GitHub>
