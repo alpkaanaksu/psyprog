@@ -1,0 +1,51 @@
+---
+title: "RMarkdown"
+author:
+  - name: "Alp Kaan Aksu"
+    email: a.aksu@campus.lmu.de
+date: 2023-01-16
+date-format: "DD.MM.YY"
+footer: "Versionskontrolle"
+execute: 
+  echo: true
+  error: true
+format: 
+  clean-revealjs: 
+    output-ext: slide.html
+    transition: slide
+    background-transition: fade
+    touch: true
+    embed-resources: true
+    css: reveal_styles.css
+  html: default
+---
+
+## Version Control
+
+- Die "Geschichte" von dem Projekt wird vollständig gespeichert
+    - Man muss aber selber sagen, wann der aktuelle Stand gespeichert werden soll
+- Backup und Recovery-Möglichkeite
+- Mehrere Personen können gleichzeitig an einem Projekt arbeiten
+    - Man sieht auch wer, was gemacht hat
+
+## Git
+
+- Ein spezifisches Version Control System
+- Weit verbreitet
+- Nur für Command Line, es gibt aber verschiedene Implementierungen von Benutzeroberflächen dafür
+- Kostenlos und Open Source
+
+## GitHub
+
+- Hosting for Git Repositories
+- Auch kostenlos
+- Remote Repository
+
+## Wichtige Konzepte
+
+- **Repository**: Ein Speicherort für Projektdateien und ihre Versionshistorie
+- **Commit**: Änderungen endgültig speichern
+- **Push**: Das Übertragen lokaler Commits zu einem Remote-Repository (z.B. GitHub)
+- **Pull**: Das Abrufen und Integrieren von Änderungen aus einem Remote-Repository in das lokale Repository
+- **Clone**: Eine Kopie des gesamten Repositories von einem Remote-Repository auf den lokalen Computer
+- **Branch**: Eine parallele Version des Repositories zur isolierten Entwicklung
